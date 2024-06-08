@@ -13,7 +13,9 @@ montażem oraz świadczeniem usług serwisowych. Posiada własny magazyn
 oraz wyodrębnioną komórkę zajmującą się sprzedażą.
 Firma oferuje system rabatów dla klientów w celu zachęcenia do większych zamówień.
 \subsection{Model przedsiębiorstwa}
-
+\begin{center}
+    \includegraphics[width=0.9\textwidth]{struktura.png}\\[0.5cm]
+\end{center}
 \subsection{Struktura organizacyjna}
 Firma podzielona jest na działy/ departamenty,
 w którym każdy odpowiada za jeden główny cel spójny z jego nazwą,
@@ -137,7 +139,7 @@ Minimalizacja całkowitych kosztów dostawy i montażu:
 Ten model matematyczny pozwala na minimalizację kosztów związanych z dostawą i montażem mebli biurowych, uwzględniając odległości między magazynami a lokalizacjami klientów oraz koszty pracy ekip montażowych.
 \subsection{Model GNU MathProg}
 
-
+\begin{tiny}
 \begin{verbatim}
 # Liczba magazynów i lokalizacji klientów
 param M := 3; # liczba magazynów
@@ -183,8 +185,9 @@ for{i in 1..M, j in 1..C: x[i,j] = 1}{
 }
 
 end;
-
 \end{verbatim}
+
+\end{tiny}
 
 \subsubsection*{Wyniki}
 
@@ -201,8 +204,8 @@ Wygenerowany przez PlantUML\cite{plant}.
     \includegraphics[width=0.6\textwidth]{uml.png}\\[0.5cm]
 \end{center}
 \subsection*{PlantUML}
-
-\begin{verbatim}
+\begin{tiny}
+    \begin{verbatim}
 @startuml
 entity "Klient" {
     + id: int
@@ -251,7 +254,7 @@ Magazyn }|-- Produkt
 @enduml
 
 \end{verbatim}
-
+\end{tiny}
 
 \section{Strategia wdrażania systemów}
 
