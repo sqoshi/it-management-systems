@@ -1,0 +1,51 @@
+\documentclass[letterpaper,12pt,leqno]{article}
+\usepackage{paper}
+\usepackage{geometry}
+\usepackage{titletoc}
+\usepackage{hyperref}
+% \usepackage{indentfirst} % Wcięcie pierwszego paragrafu
+\usepackage[utf8]{inputenc} % Umożliwia wprowadzanie znaków diakrytycznych bezpośrednio z klawiatury
+
+\usepackage[numbers]{natbib}
+
+\usepackage{times} % Używa czcionki Times New Roman
+
+% \usepackage[utf8]{inputenc} % Umożliwia wprowadzanie znaków diakrytycznych bezpośrednio z klawiatury
+\usepackage[T1]{fontenc} % Ustawia poprawne kodowanie fontów
+\usepackage[polish]{babel} % Ustawia język dokumentu na polski
+\usepackage{polski} % Dostarcza polską notację matematyczną, itp.
+\usepackage{indentfirst} % Wcięcie pierwszego paragrafu
+
+% \geometry{a4paper, total={210mm,297mm}, left=20mm, right=20mm, top=25mm, bottom=25mm}
+
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{tabularx}
+\graphicspath{ {./figures/} }
+\hypersetup{pdftitle={Sprawozdanie}}
+
+\begin{document}
+
+\lstset{language=Bash, % język programowania
+	basicstyle=\small\ttfamily, % podstawowy styl czcionki
+	keywordstyle=\bfseries, % styl dla słów kluczowych
+	commentstyle=\itshape, % styl dla komentarzy
+	stringstyle=\ttfamily, % styl dla łańcuchów znaków
+	showstringspaces=false, % wyłączenie podkreślania odstępów w łańcuchach znaków
+	numbers=left, % numerowanie linii po lewej stronie
+	numberstyle=\tiny, % styl dla numerów linii
+	stepnumber=1, % krok numeracji linii
+	frame=single, % rama wokół kodu
+	breaklines=true % automatyczne łamanie linii
+}
+
+\input{title_page.tex}
+
+\input{toc.tex}
+
+\input{content.tex}
+
+\bibliographystyle{plain}
+\bibliography{bibliography.bib}
+
+\end{document}
