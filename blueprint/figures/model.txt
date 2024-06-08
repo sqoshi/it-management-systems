@@ -1,0 +1,44 @@
+﻿# Liczba magazynów i lokalizacji klientów
+param M := 3; # liczba magazynów
+param C := 3; # liczba klientów
+
+param cost_delivery {1..M, 1..C};
+param cost_installation {1..M, 1..C};
+
+# Zmienna decyzyjna: czy magazyn m obsługuje klienta c
+var x{1..M, 1..C} binary;
+
+# Funkcja celu: minimalizacja całkowitych kosztów dostawy i montażu
+minimize TotalCost: sum{i in 1..M, j in 1..C}(cost_delivery[i,j] + cost_installation[i,j]) * x[i,j];
+
+# Ograniczenia: każdy klient musi być obsłużony przez dokładnie jeden magazyn
+s.t. Assign_Clients{j in 1..C}: sum{i in 1..M} x[i,j] = 1;
+
+# Ograniczenia: każdy magazyn może obsługiwać co najwyżej jednego klienta
+s.t. Assign_Warehouses{i in 1..M}: sum{j in 1..C} x[i,j] <= 1;
+
+data;
+param cost_delivery:
+  1 2 3 :=
+1 1 2 3
+2 4 5 6	
+3 7 8 9;
+
+# Koszt montażu przez ekipę z magazynu w lokalizacji klienta
+param cost_installation:
+  1 2 3 :=
+1 10 11 12
+2 13 14 15
+3 16 17 18;
+end;
+
+solve;
+
+# Wyświetlenie wyników
+printf "Total Cost: %g\n", TotalCost;
+printf "Assignments:\n";
+for{i in 1..M, j in 1..C: x[i,j] = 1}{
+    printf "Warehouse %d serves Client %d\n", i, j;
+}
+
+end;
